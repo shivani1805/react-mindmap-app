@@ -1,0 +1,25 @@
+{
+    "topic": "Artificial intelligence",
+    "subtopics": [
+        {
+            "name": "Machine learning",
+            "children": ["Supervised learning", "Unsupervised learning", "Reinforcement learning"]
+        },
+        {
+            "name": "Deep learning",
+            "children": ["Neural networks", "Convolutional neural networks (CNNs)", "Recurrent neural networks (RNNs)"]
+        },
+        {
+            "name": "Natural language processing (NLP)",
+            "children": ["Text classification", "Named entity recognition", "Translation"]
+        },
+        {
+            "name": "Computer vision",
+            "children": ["Object detection", "Image segmentation", "Face recognition"]
+        },
+        {
+            "name": "Applications",
+            "children": ["Healthcare", "Finance", "Autonomous vehicles", "Robotics"]
+        }
+    ]
+}
