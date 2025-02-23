@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Add any additional styles for your components here */
