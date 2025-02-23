@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/open-dyslexic');
 .square-node {
     width: 200px;
     height: 80px;
@@ -11,13 +12,48 @@
     font-weight: bold;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+ 
 }
-
+.square-node:hover{
+    cursor: pointer;
+}
+ 
 #map-div {
     width: 100vw;
-    height: 100vh; /* Use full screen height */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
 }
+/* Button styling */
+.dyslexia-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+ 
+.dyslexia-toggle:hover {
+    background-color: #0056b3;
+}
+ 
+/* Dyslexia Mode */
+.dyslexia-mode {
+    font-family: 'Open-Dyslexic', Arial;
+ 
+}
+ 
+ 
+/* Apply Dyslexia Font to Nodes */
+.dyslexia-font {
+   font-size: 17px;
+    font-family: 'Open-Dyslexic', Arial !important;
+}
+ 

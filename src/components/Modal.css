@@ -12,6 +12,22 @@
     z-index: 1000;
 }
 
+.modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 /* Modal Content */
 .modal-content {
     background: #FFF9C4;

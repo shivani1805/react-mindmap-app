@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Button from '@mui/material/Button';
 import MicIcon from '@mui/icons-material/Mic';
+import { Headset } from '@mui/icons-material';
 
 const Modal = ({ isOpen, onClose, onSpeak, children }) => {
     if (!isOpen) return null;
@@ -13,6 +14,15 @@ const Modal = ({ isOpen, onClose, onSpeak, children }) => {
             <div className="modal-content">
                 <div className="modal-header">
                     {/* Close Button */}
+                    <Button 
+                        className="speak-button" 
+                        variant="contained" 
+                        color="primary"
+                        startIcon={<Headset />}
+                        onClick={onSpeak} 
+                    >
+                        Listen
+                    </Button>
                     <IconButton 
                         onClick={onClose} 
                         className="close-button"
@@ -22,15 +32,7 @@ const Modal = ({ isOpen, onClose, onSpeak, children }) => {
                     </IconButton>
 
                     {/* Speak Button */}
-                    <Button 
-                        className="speak-button" 
-                        variant="contained" 
-                        color="primary"
-                        startIcon={<MicIcon />}
-                        onClick={onSpeak} 
-                    >
-                        Speak
-                    </Button>
+                    
                 </div>
                 
                 {/* Modal Content */}
