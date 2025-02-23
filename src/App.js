@@ -1,66 +1,51 @@
 import React, { useState } from 'react';
 import Mindmap from './components/Mindmap';
-import { Button, TextField } from '@mui/material';
-import NightsStayIcon from '@mui/icons-material/NightsStay'; 
-import WbSunnyIcon from '@mui/icons-material/WbSunny'; 
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-import { IconButton } from '@mui/material';
-
+import IconButton from '@mui/material/IconButton';
 
 const App = () => {
-    const [topic, setTopic] = useState("");
-    const [submittedTopic, setSubmittedTopic] = useState("");
-
-    const handleSearch = () => {
-        if (topic.trim() !== "") {
-            setSubmittedTopic(topic);
-        }
-    };
-
+    const [topic, setTopic] = useState("Data Science"); // Default topic
     const [isDyslexiaMode, setIsDyslexiaMode] = useState(false);
 
     return (
+        <div style={{ textAlign: "center" }}>
 
-            <div style={{ textAlign: "center", padding: "20px" }}>
-                <h1>Mindmap Explorer</h1>
+            {/* Top Navigation Bar */}
+            <AppBar position="static" sx={{ bgcolor: "#2C3E50", padding: "10px" }}>
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    
+                    {/* Left-aligned "Think Flow" Title */}
+                    <Typography variant="h6" sx={{ fontWeight: "bold", color: "#EDE8D0" }}>
+                        Think Flow
+                    </Typography>
 
-                {/* Input Field for Topic */}
-                <TextField 
-                    label="Enter Topic" 
-                    variant="outlined" 
-                    value={topic}
-                    onChange={(e) => setTopic(e.target.value)}
-                    sx={{ marginBottom: 2, width: "300px" }}
-                />
-                <Button 
-                    variant="contained" 
-                    onClick={handleSearch} 
-                    sx={{ marginLeft: "10px" }}
-                >
-                    Search
-                </Button>
-                <IconButton
-                    onClick={() => setIsDyslexiaMode(!isDyslexiaMode)}
-                    sx={{
-                        position: 'absolute',
-                        top: 10,
-                        right: 10,
-                        bgcolor: isDyslexiaMode ? '#007BFF' : 'lightgrey',
-                        color: isDyslexiaMode ? 'white' : 'black',
-                        borderRadius: '50%',
-                        width: 42,
-                        height: 42,
-                        boxShadow: 2,
-                        '&:hover': { bgcolor: isDyslexiaMode ? '#0056b3' : '#f0f0f0' }
-                    }}
-                >
-                    <AccessibilityNewIcon />
-                </IconButton>
+                    {/* Center-aligned Topic Name */}
+                    <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
+                        {topic}
+                    </Typography>
 
-                {/* Pass the entered topic to the Mindmap component */}
-                {submittedTopic && <Mindmap topic={submittedTopic} isDyslexiaMode={isDyslexiaMode}/>}
-            </div>
+                    {/* Right-aligned Dyslexia Mode Button */}
+                    <IconButton
+                        onClick={() => setIsDyslexiaMode(!isDyslexiaMode)}
+                        sx={{
+                            bgcolor: isDyslexiaMode ? '#EDE8D0' : 'lightgrey',
+                            color: 'black',
+                            borderRadius: '50%',
+                            width: 42,
+                            height: 42,
+                            boxShadow: 2,
+                            '&:hover': { bgcolor: isDyslexiaMode ? '#EDE8D0' : '#f0f0f0' }
+                        }}
+                    >
+                        <AccessibilityNewIcon />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
 
+            {/* Pass the selected topic to the Mindmap component */}
+            <Mindmap topic={topic} isDyslexiaMode={isDyslexiaMode} />
+        </div>
     );
 };
 

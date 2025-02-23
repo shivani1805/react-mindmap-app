@@ -55,17 +55,19 @@ const Mindmap = ({ isDyslexiaMode,topic }) => {
  
     const handleNodeClick = (node) => {
         if (!treeData || !treeData.children) return;
- 
+    
         const clickedSubtopic = treeData.children.find(subtopic => subtopic.name === node.name);
         if (clickedSubtopic) {
             let flashcards = [];
- 
+    
+            // Add the main subtopic as the first flashcard
             flashcards.push({
                 name: clickedSubtopic.name,
                 question: `What is ${clickedSubtopic.name}?`,
                 answer: `${clickedSubtopic.name} is...`
             });
- 
+    
+            // Add children topics as flashcards
             if (clickedSubtopic.children) {
                 flashcards.push(...clickedSubtopic.children.map(child => ({
                     name: child.name,
@@ -73,20 +75,32 @@ const Mindmap = ({ isDyslexiaMode,topic }) => {
                     answer: `${child.name} is...`
                 })));
             }
- 
+    
+            // Ensure exactly 4 flashcards, but all following the same pattern
             while (flashcards.length < 4) {
-                flashcards.push({
-                    name: `Placeholder ${flashcards.length + 1}`,
-                    question: `Placeholder question ${flashcards.length + 1}`,
-                    answer: `Placeholder answer ${flashcards.length + 1}`
-                });
+                let additionalChild = clickedSubtopic.children?.[flashcards.length - 1]; // Try to get next child
+    
+                if (additionalChild) {
+                    flashcards.push({
+                        name: additionalChild.name,
+                        question: `What is ${additionalChild.name}?`,
+                        answer: `${additionalChild.name} is...`
+                    });
+                } else {
+                    // If no additional children, use a variation of the main topic
+                    flashcards.push({
+                        name: `${clickedSubtopic.name} Concept `,
+                        question: `What is ${clickedSubtopic.name} Concept?`,
+                        answer: `${clickedSubtopic.name} Concept is an additional aspect.`
+                    });
+                }
             }
- 
-            setSelectedNodes(flashcards.slice(0, 4));
+    
+            setSelectedNodes(flashcards.slice(0, 4)); // Ensuring only 4 flashcards
             setIsModalOpen(true);
         }
     };
- 
+     
     const handleCloseModal = () => {
         setIsModalOpen(false);
         setSelectedNodes([]);
