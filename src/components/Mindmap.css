@@ -57,3 +57,17 @@
     font-family: 'Open-Dyslexic', Arial !important;
 }
  
+.dyslexia-square-node {
+    width: 200px;
+    height: 80px;
+    background-color:#EDE8D0;
+    border: 2px solid #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}

@@ -1,0 +1,46 @@
+{
+    "topics": [
+      {
+        "topic": "Machine Learning",
+        "questions": [
+          {
+            "question": "What field of AI focuses on building models that learn from data?",
+            "answer": "Machine Learning"
+          },
+          {
+            "question": "Which type of learning uses labeled data for training?",
+            "answer": "Supervised"
+          },
+          {
+            "question": "Which type of learning finds hidden patterns in data without labels?",
+            "answer": "Unsupervised"
+          },
+          {
+            "question": "Which algorithm is commonly used for classification tasks?",
+            "answer": "Decision Tree"
+          }
+        ]
+      },
+      {
+        "topic": "Statistics",
+        "questions": [
+          {
+            "question": "What is the branch of mathematics that deals with data collection, analysis, and interpretation?",
+            "answer": "Statistics"
+          },
+          {
+            "question": "Which type of statistics summarizes and describes the features of a dataset?",
+            "answer": "Descriptive"
+          },
+          {
+            "question": "Which type of statistics makes predictions or inferences about a population from a sample?",
+            "answer": "Inferential"
+          },
+          {
+            "question": "In inferential statistics, what is the term for a subset of a population used for analysis?",
+            "answer": "Sample"
+          }
+        ]
+      }
+    ]
+  }

@@ -7,6 +7,43 @@
   pointer-events: none;
 }
 
+/* Top Strip */
+.top-strip {
+  background-color: #1a1a2e; /* Dark blue background */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* ThinkFlow Title */
+.thinkflow-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Accessibility Button */
+.accessibility-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.accessibility-button:hover {
+  background-color: white;
+  color: #1a1a2e;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -45,5 +82,6 @@ body.dark {
   background-color: #000000;
   color: #ffffff;
 }
+
 
 /* Add any additional styles for your components here */
