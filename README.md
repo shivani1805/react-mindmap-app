@@ -57,8 +57,8 @@ Beta Version
  Our goal is to offer a wide range of learning materials, including videos and articles from trusted sources across the web, enabling learners to explore content in diverse formats.
 
 Key features include:
-Interactive Learning Environment
-Personalized Learning Pathways
-Accessibility for All
-Collaborative and Community Learning
+- Interactive Learning Environment
+- Personalized Learning Pathways
+- Accessibility for All
+- Collaborative and Community Learning
 
