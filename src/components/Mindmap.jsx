@@ -25,11 +25,7 @@ const convertData = (data) => {
 const Mindmap = () => {
     const [treeData, setTreeData] = useState(null);
     const [selectedNodes, setSelectedNodes] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
-    const [dimensions, setDimensions] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight
-    });
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         fetch('/data.json')
@@ -39,16 +35,6 @@ const Mindmap = () => {
                 setTreeData(formattedData);
             })
             .catch((error) => console.error('Error fetching data:', error));
-
-        const handleResize = () => {
-            setDimensions({
-                width: window.innerWidth,
-                height: window.innerHeight
-            });
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const renderSquareNode = ({ nodeDatum }) => (
@@ -67,14 +53,12 @@ const Mindmap = () => {
         if (clickedSubtopic) {
             let flashcards = [];
 
-            // Add subtopic itself as a flashcard
             flashcards.push({
                 name: clickedSubtopic.name,
                 question: `What is ${clickedSubtopic.name}?`,
                 answer: `${clickedSubtopic.name} is...`
             });
 
-            // Add its children as flashcards
             if (clickedSubtopic.children) {
                 flashcards.push(...clickedSubtopic.children.map(child => ({
                     name: child.name,
@@ -83,7 +67,6 @@ const Mindmap = () => {
                 })));
             }
 
-            // If fewer than 5 flashcards exist, add placeholders
             while (flashcards.length < 4) {
                 flashcards.push({
                     name: `Placeholder ${flashcards.length + 1}`,
@@ -92,14 +75,14 @@ const Mindmap = () => {
                 });
             }
 
-            setSelectedNodes(flashcards.slice(0, 4)); // Show the flashcards
-            setIsModalOpen(true); // Open the modal
+            setSelectedNodes(flashcards.slice(0, 4));
+            setIsModalOpen(true);
         }
     };
 
     const handleCloseModal = () => {
-        setIsModalOpen(false); // Close the modal
-        setSelectedNodes([]); // Clear selected nodes
+        setIsModalOpen(false);
+        setSelectedNodes([]);
     };
 
     return (
@@ -117,19 +100,16 @@ const Mindmap = () => {
                 <p>Loading...</p>
             )}
             <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-    <div className="flashcard-container">
-        {selectedNodes.map((node, index) => (
-            <Flashcard
-                key={index}
-                question={node.question}
-                answer={node.answer}
-                onClose={() => handleCloseModal()} // Handle close if needed
-                className="flashcard" // Add class for styling
-            />
-        ))}
-    </div>
-</Modal>
-
+                <div className="flashcard-container">
+                    {selectedNodes.map((node, index) => (
+                        <Flashcard
+                            key={index}
+                            question={node.question}
+                            answer={node.answer}
+                        />
+                    ))}
+                </div>
+            </Modal>
         </div>
     );
 };
