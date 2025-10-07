@@ -32,7 +32,7 @@ Mind Map generator and accessibility: https://github.com/ritikakumar0204/ThinkFl
   - Streamlit
 2. Backend:
   - Node.js
-  - Ecpress.js
+  - Express.js
 3. Database:
   - MongoDB
 4. AI/ML Components:
